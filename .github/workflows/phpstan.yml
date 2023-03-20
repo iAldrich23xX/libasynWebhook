@@ -21,7 +21,7 @@ jobs:
       - uses: robinraju/release-downloader@v1.7
         with:
           repository: "pmmp/PHP-Binaries"
-          tag: "PHP-Binaries"
+          tag: "php-8.0-latest"
           fileName: "PHP-Linux-x86_64-PM4.tar.gz"
 
       - name: Prepare PHP
