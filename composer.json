@@ -1,0 +1,20 @@
+{
+  "name": "ialdrich23xx/libasynwebhook",
+  "description": "Lib Async of Pocketmine for Discord Webhooks",
+  "type": "library",
+  "require": {
+    "php": "^8.0"
+  },
+  "license": "Apache-2.0",
+  "autoload": {
+    "psr-4": {
+      "ialdrich23xx\\libasynwebhook\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "iAldrich23xX",
+      "email": "wilsonalejandro83@gmail.com"
+    }
+  ]
+}
