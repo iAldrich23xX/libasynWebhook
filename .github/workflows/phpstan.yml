@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ "pmmp4" ]
 
-env:
-  GAME_VERSION: "1.0"
-
 jobs:
   phpstan:
     if: "!contains(github.event.head_commit.message, '[ci skip]')"
