@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [ "pmmp4" ]
+  pull_request:
+    branches: [ "pmmp4" ]
+
+env:
+  GAME_VERSION: "1.0"
+
+jobs:
+  phpstan:
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
+    name: PHPStan Analysis
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: robinraju/release-downloader@v1.7
+        with:
+          repository: "pmmp/PHP-Binaries"
+          tag: "PHP-Binaries"
+          fileName: "PHP-Linux-x86_64-PM4.tar.gz"
+
+      - name: Prepare PHP
+        run: |
+          tar -xvzf PHP-Linux-x86_64-PM4.tar.gz -C ./.github/
+          rm -r PHP-Linux-x86_64-PM4.tar.gz
+
+      - uses: robinraju/release-downloader@v1.7
+        with:
+          repository: "pmmp/PocketMine-MP"
+          tag: "4.17.0"
+          fileName: "PocketMine-MP.phar"
+
+      - name: Add PMMP
+        run: |
+          mkdir vendor
+          mv PocketMine-MP.phar ./vendor/
+
+      - name: PHPStan analysis
+        run: |
+          wget https://getcomposer.org/download/latest-stable/composer.phar
+          ./.github/bin/php7/bin/php composer.phar install --dev --prefer-dist --no-interaction
+          ./.github/bin/php7/bin/php vendor/bin/phpstan.phar analyze

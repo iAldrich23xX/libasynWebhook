@@ -1,0 +1,15 @@
+parameters:
+    level: max
+    checkMissingIterableValueType: false
+    paths:
+        - .
+    bootstrapFiles:
+        - phar://vendor/PocketMine-MP.phar/vendor/autoload.php
+    scanDirectories:
+        - phar://vendor/PocketMine-MP.phar
+    excludePaths:
+        analyse:
+            - bin
+            - .github
+            - vendor
+    treatPhpDocTypesAsCertain: false
