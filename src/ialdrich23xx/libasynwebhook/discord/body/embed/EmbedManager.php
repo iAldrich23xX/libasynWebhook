@@ -6,8 +6,8 @@ namespace ialdrich23xx\libasynwebhook\discord\body\embed;
 
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\Structure;
 use ialdrich23xx\libasynwebhook\Loader;
-use Ramsey\Uuid\Guid\Fields;
 use function is_null;
+use function strlen;
 
 class EmbedManager extends Structure
 {
@@ -107,7 +107,7 @@ class EmbedManager extends Structure
     }
 
     /**
-     * @return Fields[]
+     * @return Field[]
      */
     public function getFields(): array
     {
@@ -196,7 +196,7 @@ class EmbedManager extends Structure
 
     public function build(): bool
     {
-        return !is_null($this->getTitle()) && !is_null($this->getDescription()) && !is_null($this->getColor());
+        return strlen($this->getTitle()) !== 0 && strlen($this->getDescription()) !== 0 && !empty($this->getFields());
     }
 
     public function toArray(): array
@@ -204,7 +204,7 @@ class EmbedManager extends Structure
         $result = [
             "title" => $this->getTitle(),
             "description" => $this->getDescription(),
-            "color" => $this->color
+            "color" => $this->getColor()
         ];
 
         if (!is_null($this->getAuthor())) $result["author"] = $this->getAuthor()->toArray();
@@ -224,8 +224,8 @@ class EmbedManager extends Structure
 
     public function toString(): string
     {
-        return "EmbedManager(title=" . $this->getTitle() ?? "null" . ",description=" . $this->getDescription() ?? null . ",color=" . $this->getColor() ?? "null" .
-        ",author=" . $this->getAuthor()->toString() . ",footer=" . $this->getFooter()->toString() . ",thumbnail=" . $this->getThumbnail()->toString() .
-        ",image=" . $this->getImage()->toString() . ",timestamp=" . $this->getTimestamp()->toString() . ")";
+        return "EmbedManager(title=" . $this->getTitle() . ",description=" . $this->getDescription() . ",color=" . $this->getColor() .
+        ",author=" . $this->getAuthor()?->toString() . ",footer=" . $this->getFooter()?->toString() . ",thumbnail=" . $this->getThumbnail()?->toString() .
+        ",image=" . $this->getImage()?->toString() . ",timestamp=" . $this->getTimestamp()?->toString() . ")";
     }
 }

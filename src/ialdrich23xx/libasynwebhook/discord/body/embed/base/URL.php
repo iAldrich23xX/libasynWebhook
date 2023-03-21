@@ -6,10 +6,11 @@ namespace ialdrich23xx\libasynwebhook\discord\body\embed\base;
 
 use ialdrich23xx\libasynwebhook\Loader;
 use function is_null;
+use function strlen;
 
 trait URL
 {
-    private string $url;
+    private string $url = "";
 
     public function setUrl(string $url): self
     {
@@ -25,7 +26,7 @@ trait URL
 
     public function urlBuild(): bool
     {
-        if (is_null($this->getUrl())) return false;
+        if (strlen($this->getUrl()) === 0) return false;
 
         return Loader::getInstance()->isValidUrl($this->getUrl());
     }
@@ -37,6 +38,6 @@ trait URL
 
     public function urlToString(): string
     {
-        return "url=" . $this->getUrl() ?? "null";
+        return "url=" . $this->getUrl();
     }
 }

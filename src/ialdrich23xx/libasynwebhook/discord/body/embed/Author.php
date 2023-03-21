@@ -10,6 +10,7 @@ use ialdrich23xx\libasynwebhook\discord\body\embed\base\Structure;
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\URL;
 use function array_merge;
 use function is_null;
+use function strlen;
 
 class Author extends Structure
 {
@@ -28,10 +29,10 @@ class Author extends Structure
 
     public function build(): bool
     {
-        if (is_null($this->getName())) return false;
+        if (strlen($this->getName()) === 0) return false;
 
-        if (!is_null($this->getIcon()) && !$this->iconBuild()) return false;
-        if (!is_null($this->getUrl()) && !$this->urlBuild()) return false;
+        if (strlen($this->getIcon()) !== 0 && !$this->iconBuild()) return false;
+        if (strlen($this->getUrl()) !== 0 && !$this->urlBuild()) return false;
 
         return true;
     }
@@ -40,8 +41,8 @@ class Author extends Structure
     {
         $result = $this->nameToArray();
 
-        if (!is_null($this->getIcon())) $result = array_merge($result, $this->iconToArray());
-        if (!is_null($this->getUrl())) $result = array_merge($result, $this->urlToArray());
+        if (strlen($this->getIcon()) !== 0) $result = array_merge($result, $this->iconToArray());
+        if (strlen($this->getUrl()) !== 0) $result = array_merge($result, $this->urlToArray());
 
         return $result;
     }

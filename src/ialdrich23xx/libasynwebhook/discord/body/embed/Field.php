@@ -7,6 +7,7 @@ namespace ialdrich23xx\libasynwebhook\discord\body\embed;
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\Name;
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\Structure;
 use function is_null;
+use function strlen;
 
 class Field extends Structure
 {
@@ -44,7 +45,7 @@ class Field extends Structure
 
     public function build(): bool
     {
-        if (is_null($this->getName()) || is_null($this->getValue())) return false;
+        if (strlen($this->getName()) === 0 || strlen($this->getValue()) === 0) return false;
 
         return true;
     }
@@ -53,14 +54,14 @@ class Field extends Structure
     {
         $result = $this->nameToArray();
 
-        $result["value"] = $this->getValue() ?? "null";
-        $result["inline"] = $this->getInline() ?? false;
+        $result["value"] = $this->getValue();
+        $result["inline"] = $this->getInline();
 
         return $result;
     }
 
     public function toString(): string
     {
-        return "Field(" . $this->nameToString() . ",value=" . $this->getValue() ?? "null" . ",inline=" . $this->getInLine() ?? "null" . ")";
+        return "Field(" . $this->nameToString() . ",value=" . $this->getValue() . ",inline=" . $this->getInLine() . ")";
     }
 }

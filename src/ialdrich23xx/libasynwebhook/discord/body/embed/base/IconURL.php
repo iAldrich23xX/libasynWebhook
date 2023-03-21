@@ -6,10 +6,11 @@ namespace ialdrich23xx\libasynwebhook\discord\body\embed\base;
 
 use ialdrich23xx\libasynwebhook\Loader;
 use function is_null;
+use function strlen;
 
 trait IconURL
 {
-    private string $icon;
+    private string $icon = "";
 
     public function setIcon(string $icon): self
     {
@@ -25,7 +26,7 @@ trait IconURL
 
     public function iconBuild(): bool
     {
-        if (is_null($this->getIcon())) return false;
+        if (strlen($this->getIcon()) === 0) return false;
 
         return Loader::getInstance()->isValidUrl($this->getIcon());
     }
@@ -37,6 +38,6 @@ trait IconURL
 
     public function iconToString(): string
     {
-        return "icon=" . $this->getIcon() ?? "null";
+        return "icon=" . $this->getIcon();
     }
 }

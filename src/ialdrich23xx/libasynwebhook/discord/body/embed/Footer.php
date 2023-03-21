@@ -9,6 +9,7 @@ use ialdrich23xx\libasynwebhook\discord\body\embed\base\Structure;
 use ialdrich23xx\libasynwebhook\Loader;
 use function array_merge;
 use function is_null;
+use function strlen;
 
 class Footer extends Structure
 {
@@ -37,8 +38,8 @@ class Footer extends Structure
 
     public function build(): bool
     {
-        if (is_null($this->getText())) return false;
-        if (!is_null($this->getIcon()) && !Loader::getInstance()->isValidUrl($this->getIcon())) return false;
+        if (strlen($this->getText()) === 0) return false;
+        if (strlen($this->getIcon()) !== 0 && !$this->iconBuild()) return false;
 
         return true;
     }
@@ -47,15 +48,15 @@ class Footer extends Structure
     {
         $result = [];
 
-        $result["text"] = $this->getText() ?? "null";
+        $result["text"] = $this->getText();
 
-        if (!is_null($this->getIcon())) $result = array_merge($result, $this->iconToArray());
+        if (strlen($this->getIcon()) !== 0) $result = array_merge($result, $this->iconToArray());
 
         return $result;
     }
 
     public function toString(): string
     {
-        return "Footer(text=" . $this->getText() ?? "null" . "," . $this->iconToString() . ")";
+        return "Footer(text=" . $this->getText() . "," . $this->iconToString() . ")";
     }
 }

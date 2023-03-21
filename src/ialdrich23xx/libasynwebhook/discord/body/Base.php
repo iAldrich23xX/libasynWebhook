@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ialdrich23xx\libasynwebhook\discord\body;
 
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\Structure;
-use ialdrich23xx\libasynwebhook\discord\body\Embed\EmbedManager;
+use ialdrich23xx\libasynwebhook\discord\body\embed\EmbedManager;
 use ialdrich23xx\libasynwebhook\Loader;
 use JsonSerializable;
 use function count;
@@ -127,7 +127,7 @@ class Base extends Structure implements JsonSerializable
 
     public function toString(): string
     {
-        return "Base(content=" . $this->getContent() ?? "null" . ",username=" . $this->getUsername() ?? "null" . ",avatar=" . $this->getAvatar() ?? "null" .
+        return "Base(content=" . $this->getContent() . ",username=" . $this->getUsername() . ",avatar=" . $this->getAvatar() .
         ";embeds=Array(" . count($this->getEmbeds()) . ")";
     }
 }

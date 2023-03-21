@@ -6,7 +6,7 @@ namespace ialdrich23xx\libasynwebhook\discord\body\embed\base;
 
 trait Name
 {
-    private string $name;
+    private string $name = "";
 
     public function setName(string $name): self
     {
@@ -27,6 +27,6 @@ trait Name
 
     public function nameToString(): string
     {
-        return "name=" . $this->getName() ?? "null";
+        return "name=" . $this->getName();
     }
 }

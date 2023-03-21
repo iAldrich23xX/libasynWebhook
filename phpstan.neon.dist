@@ -12,4 +12,5 @@ parameters:
             - bin
             - .github
             - vendor
+            - example-plugin
     treatPhpDocTypesAsCertain: false

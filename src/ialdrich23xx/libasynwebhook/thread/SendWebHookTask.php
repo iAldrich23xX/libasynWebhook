@@ -10,7 +10,6 @@ use JsonException;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\utils\Internet;
 use function json_encode;
-use function var_dump;
 
 class SendWebHookTask extends AsyncTask
 {
