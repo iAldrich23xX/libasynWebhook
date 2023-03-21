@@ -9,7 +9,7 @@ use pocketmine\scheduler\AsyncTask;
 use pocketmine\utils\Internet;
 use function var_dump;
 
-class Task extends AsyncTask
+class SendWebHookTask extends AsyncTask
 {
     public function __construct(
         private WebHook $webHook

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ialdrich23xx\libasynwebhook\discord\body;
+namespace ialdrich23xx\libasynwebhook\discord\body\embed;
 
-class EmbedColors
+interface EmbedColors
 {
     const Default = 0; //#000000
     const Aqua = 1752220;    //#1ABC9C
