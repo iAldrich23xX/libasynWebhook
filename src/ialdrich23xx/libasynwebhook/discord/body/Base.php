@@ -33,7 +33,7 @@ class Base extends Structure implements JsonSerializable
         return $this;
     }
 
-    public function getContent(): string
+    public function getContent(): ?string
     {
         return $this->content;
     }
@@ -45,7 +45,7 @@ class Base extends Structure implements JsonSerializable
         return $this;
     }
 
-    public function getUsername(): string
+    public function getUsername(): ?string
     {
         return $this->username;
     }
@@ -57,7 +57,7 @@ class Base extends Structure implements JsonSerializable
         return $this;
     }
 
-    public function getAvatar(): string
+    public function getAvatar(): ?string
     {
         return $this->avatar;
     }

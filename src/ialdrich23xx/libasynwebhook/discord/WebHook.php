@@ -7,6 +7,7 @@ namespace ialdrich23xx\libasynwebhook\discord;
 use ialdrich23xx\libasynwebhook\discord\body\Base;
 use ialdrich23xx\libasynwebhook\Loader;
 use ialdrich23xx\libasynwebhook\thread\SendWebHookTask;
+use JsonException;
 
 class WebHook
 {
@@ -30,7 +31,10 @@ class WebHook
         return $this->body;
     }
 
-    public function send(): void
+	/**
+	 * @throws JsonException
+	 */
+	public function send(): void
     {
         if (Loader::getInstance()->isValidUrl($this->getUrl())) {
             Loader::getInstance()->getThread()->submitTask(new SendWebHookTask($this));
