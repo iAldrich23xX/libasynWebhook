@@ -1,0 +1,29 @@
+{
+  "name": "ialdrich23xx/libasynwebhook",
+  "description": "Plugin example for libasyn WebHook",
+  "type": "project",
+  "autoload": {
+    "classmap": [
+      "src"
+    ]
+  },
+  "authors": [
+    {
+      "name": "iAldrich23xX",
+      "email": "wilsonalejandro83@gmail.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:iAldrich23xX/libasynWeebhook.git"
+    }
+  ],
+  "require": {
+    "php": "^8.0",
+    "ialdrich23xx/libasynwebhook": "dev-pmmp4"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "1.10.6"
+  }
+}
