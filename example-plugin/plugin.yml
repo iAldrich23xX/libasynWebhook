@@ -1,4 +1,4 @@
 name: libasynDiscordWebHook-example
 version: 0.1.0
 api: 4.0.0
-main: Poggit\ChatCount\Main
+main: ialdrich23xx\libasynwebhook\Main
