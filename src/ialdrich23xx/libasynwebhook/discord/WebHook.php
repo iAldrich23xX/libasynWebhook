@@ -26,7 +26,7 @@ class WebHook
         return $this->url;
     }
 
-    public function getBody(): Base
+    public function getBody(): ?Base
     {
         return $this->body;
     }

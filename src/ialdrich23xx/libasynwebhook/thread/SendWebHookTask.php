@@ -9,6 +9,7 @@ use InvalidArgumentException;
 use JsonException;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\utils\Internet;
+use function is_null;
 use function json_encode;
 
 class SendWebHookTask extends AsyncTask
@@ -22,6 +23,12 @@ class SendWebHookTask extends AsyncTask
 	 * @throws JsonException
 	 */
 	public function __construct(WebHook $webHook) {
+        if (is_null($webHook->getBody())) {
+            $this->cancelRun();
+
+            return;
+        }
+
 		$this->args = json_encode($webHook->getBody()->jsonSerialize(), JSON_THROW_ON_ERROR);
 
 		$this->page = $webHook->getUrl();

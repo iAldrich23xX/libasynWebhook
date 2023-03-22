@@ -44,6 +44,7 @@ class Loader
         }), Pool::COLLECT_INTERVAL);
 
         $pluginBase->getScheduler()->scheduleRepeatingTask(new ClosureTask(function (): void {
+            /** @phpstan-ignore-next-line */
             $this->threadPool->triggerGarbageCollector();
         }), Pool::GARBAGE_COLLECT_INTERVAL);
     }
