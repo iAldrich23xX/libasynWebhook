@@ -3,9 +3,7 @@ build-by-default: true
 branches:
 - pmmp4
 projects:
-  example-plugin:
-    path: example-plugin/
-  libasynWeebhook-PM:
+  libasynWeebHook-PM:
     path: ""
     model: virion
     type: library
