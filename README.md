@@ -3,7 +3,7 @@
 <img align="left" width="0" height="140px" hspace="10"/>
 
 # libasynWebHook
-[![PHPStan](https://github.com/iAldrich23xX/libasynWebhook/blob/master/.github/workflows/phpstan.yml/badge.svg)](https://github.com/iAldrich23xX/libasynWebhook/actions/workflows/phpstan.yml)
+[![PHPStan](https://github.com/ialdrich23xx/libasynWeebhook/actions/workflows/phpstan.yml/badge.svg)](https://github.com/ialdrich23xx/libasynWeebhook/actions/workflows/phpstan.yml)
 [![License](https://img.shields.io/github/license/iAldrich23xX/libasynWeebhook)](https://github.com/iAldrich23xX/libasynWebhook/blob/master/LICENSE)
 
 <a>PMMP4</a> <a>PMMP5</a> <a>Nukkit</a> <a>WaterdogPE</a>
