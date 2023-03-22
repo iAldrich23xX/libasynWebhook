@@ -3,7 +3,7 @@ build-by-default: true
 branches:
 - pmmp4
 projects:
-  libasynWeebHook-PM:
+  libasynWebHook:
     path: libasynDiscordWebhook-PM
     model: virion
     type: library
