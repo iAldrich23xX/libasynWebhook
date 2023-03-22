@@ -23,8 +23,8 @@ jobs:
 
       - name: Prepare PHP
         run: |
-          tar -xvzf PHP-Linux-x86_64-PM4.tar.gz -C ./.github/
-          rm -r PHP-Linux-x86_64-PM4.tar.gz
+          tar -xvzf PHP-Linux-x86_64-PM5.tar.gz -C ./.github/
+          rm -r PHP-Linux-x86_64-PM5.tar.gz
 
       - uses: robinraju/release-downloader@v1.7
         with:
