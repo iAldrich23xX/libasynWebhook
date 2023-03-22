@@ -19,7 +19,7 @@ jobs:
         with:
           repository: "pmmp/PHP-Binaries"
           tag: "php-8.0-latest"
-          fileName: "PHP-Linux-x86_64-PM4.tar.gz"
+          fileName: "PHP-Linux-x86_64-PM5.tar.gz"
 
       - name: Prepare PHP
         run: |
