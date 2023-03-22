@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace ialdrich23xx\libasynwebhook\thread;
 
-use ialdrich23xx\libasynwebhook\discord\WebHook;
 use InvalidArgumentException;
 use JsonException;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\utils\Internet;
+use ialdrich23xx\libasynwebhook\discord\WebHook;
 use function is_null;
 use function json_encode;
 

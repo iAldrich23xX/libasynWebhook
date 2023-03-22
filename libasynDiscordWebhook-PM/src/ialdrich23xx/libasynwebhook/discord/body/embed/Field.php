@@ -6,7 +6,6 @@ namespace ialdrich23xx\libasynwebhook\discord\body\embed;
 
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\Name;
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\Structure;
-use function is_null;
 use function strlen;
 
 class Field extends Structure

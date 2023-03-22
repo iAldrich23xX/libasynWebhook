@@ -6,9 +6,7 @@ namespace ialdrich23xx\libasynwebhook\discord\body\embed;
 
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\IconURL;
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\Structure;
-use ialdrich23xx\libasynwebhook\Loader;
 use function array_merge;
-use function is_null;
 use function strlen;
 
 class Footer extends Structure

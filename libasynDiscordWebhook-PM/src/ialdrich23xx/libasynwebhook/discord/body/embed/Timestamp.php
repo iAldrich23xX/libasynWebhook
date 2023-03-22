@@ -11,6 +11,7 @@ use ialdrich23xx\libasynwebhook\Loader;
 use function date_default_timezone_get;
 use function in_array;
 use function timezone_identifiers_list;
+
 class Timestamp extends Structure
 {
     const FORMAT = "Y-m-d\TH:i:s.v\Z";

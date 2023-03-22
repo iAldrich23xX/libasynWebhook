@@ -19,7 +19,7 @@
 ```php
 <?php
 
-use ialdrich23xx\libasynwebhook\Loader;
+use src\ialdrich23xx\libasynwebhook\Loader;
 
 class Main extends \pocketmine\plugin\PluginBase
 {
@@ -35,9 +35,10 @@ class Main extends \pocketmine\plugin\PluginBase
 ---
 
 #### Import the classes
+
 ```php
-use ialdrich23xx\libasynwebhook\discord\WebHook;
-use ialdrich23xx\libasynwebhook\discord\body\Base;
+
+
 ```
 
 #### Suggested method
@@ -73,15 +74,7 @@ $webHook->send(); //function for send message to channel
 
 ```php
 //Import the classes
-use ialdrich23xx\libasynwebhook\discord\WebHook;
-use ialdrich23xx\libasynwebhook\discord\body\Base;
-use ialdrich23xx\libasynwebhook\discord\body\embed\EmbedManager;
-use ialdrich23xx\libasynwebhook\discord\body\embed\EmbedColors;
-use ialdrich23xx\libasynwebhook\discord\body\embed\Author;
-use ialdrich23xx\libasynwebhook\discord\body\embed\Footer;
-use ialdrich23xx\libasynwebhook\discord\body\embed\Timestamp;
-use ialdrich23xx\libasynwebhook\discord\body\embed\Field;
-use ialdrich23xx\libasynwebhook\discord\body\embed\Thumbnail;
+use src\ialdrich23xx\libasynwebhook\discord\body\Base;use src\ialdrich23xx\libasynwebhook\discord\body\embed\Author;use src\ialdrich23xx\libasynwebhook\discord\body\embed\EmbedColors;use src\ialdrich23xx\libasynwebhook\discord\body\embed\EmbedManager;use src\ialdrich23xx\libasynwebhook\discord\body\embed\Field;use src\ialdrich23xx\libasynwebhook\discord\body\embed\Footer;use src\ialdrich23xx\libasynwebhook\discord\body\embed\Thumbnail;use src\ialdrich23xx\libasynwebhook\discord\body\embed\Timestamp;use src\ialdrich23xx\libasynwebhook\discord\WebHook;
 
 WebHook::make("your_url", Base::make()
     ->addEmbed(EmbedManager::make("title", "description", EmbedColors::Green)

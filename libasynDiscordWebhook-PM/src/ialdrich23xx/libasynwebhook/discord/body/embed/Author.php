@@ -9,7 +9,6 @@ use ialdrich23xx\libasynwebhook\discord\body\embed\base\Name;
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\Structure;
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\URL;
 use function array_merge;
-use function is_null;
 use function strlen;
 
 class Author extends Structure

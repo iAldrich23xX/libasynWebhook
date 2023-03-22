@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ialdrich23xx\libasynwebhook\discord\body\embed\base;
 
 use ialdrich23xx\libasynwebhook\Loader;
-use function is_null;
 use function strlen;
 
 trait URL

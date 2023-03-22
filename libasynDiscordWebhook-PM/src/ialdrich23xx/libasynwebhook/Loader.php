@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace ialdrich23xx\libasynwebhook;
 
-use ialdrich23xx\libasynwebhook\thread\Pool;
 use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\AsyncPool;
 use pocketmine\scheduler\ClosureTask;
 use pocketmine\Server;
 use pocketmine\utils\SingletonTrait;
+use ialdrich23xx\libasynwebhook\thread\Pool;
 use function is_null;
 
 class Loader

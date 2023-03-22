@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ialdrich23xx\libasynwebhook\discord\body;
 
+use JsonSerializable;
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\Structure;
 use ialdrich23xx\libasynwebhook\discord\body\embed\EmbedManager;
 use ialdrich23xx\libasynwebhook\Loader;
-use JsonSerializable;
 use function count;
 use function is_null;
 

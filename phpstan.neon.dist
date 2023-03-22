@@ -12,5 +12,5 @@ parameters:
             - bin
             - .github
             - vendor
-            - example-plugin
+            - libasynDiscordWebhook-PM/example-plugin
     treatPhpDocTypesAsCertain: false

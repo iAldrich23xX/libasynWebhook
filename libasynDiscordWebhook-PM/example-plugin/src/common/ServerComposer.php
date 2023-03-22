@@ -6,13 +6,13 @@ namespace common;
 
 define('VENDOR_ROOT_PATH', str_replace('src', '', dirname(__DIR__)).'vendor'.DIRECTORY_SEPARATOR);
 
-use const DIRECTORY_SEPARATOR;
-use function dirname;
-use function is_file;
 use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
+use function dirname;
+use function is_file;
 use function str_replace;
+use const DIRECTORY_SEPARATOR;
 
 class ServerComposer
 {
