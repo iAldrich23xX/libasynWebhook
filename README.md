@@ -110,7 +110,7 @@ WebHook::make("your_url", Base::make()
 
 <p>Integrate the virion itself into your plugin, or you could also use it as a composer library by running the command below:</p>
 
-    composer require ialdrich23xx/libbedrock dev-pmmp4
+    composer require ialdrich23xx/libasynwebhook dev-pmmp4
 
 ### COMPOSER
 
