@@ -18,7 +18,7 @@ class SendWebHookTask extends AsyncTask
 	private string $page;
 	private int $timeout;
 	private string $args;
-    /** @phpstan-var NonThreadSafeValue<array<string>> */
+    /** @phpstan-var NonThreadSafeValue<array> */
     protected NonThreadSafeValue $headers;
 
 	/**
@@ -36,6 +36,7 @@ class SendWebHookTask extends AsyncTask
 		$this->page = $webHook->getUrl();
 		$this->timeout = 10;
 
+        /** @phpstan-ignore-next-line */
         $this->headers = new NonThreadSafeValue(["Content-Type: application/json"]);
 	}
 
