@@ -1,0 +1,5 @@
+name: libasynWebHook
+main: com.ialdrich23xx.Loader
+api: 1.0.0
+version: ${project.version}
+author: iAldrich23xX
