@@ -2,9 +2,9 @@ name: PHPStan
 
 on:
   push:
-    branches: [ "pmmp4" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "pmmp4" ]
+    branches: [ "master" ]
 
 jobs:
   phpstan:
