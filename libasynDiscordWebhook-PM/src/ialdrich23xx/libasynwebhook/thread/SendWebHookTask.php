@@ -18,7 +18,7 @@ class SendWebHookTask extends AsyncTask
 	private string $page;
 	private int $timeout;
 	private string $args;
-    /** @phpstan-var NonThreadSafeValue<array> */
+    /** @phpstan-var NonThreadSafeValue<array<string>> */
     protected NonThreadSafeValue $headers;
 
 	/**
