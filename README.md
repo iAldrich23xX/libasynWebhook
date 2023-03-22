@@ -4,7 +4,7 @@
 
 # libasynWebHook
 [![PHPStan](https://github.com/ialdrich23xx/libasynWeebhook-PM/actions/workflows/phpstan.yml/badge.svg)](https://github.com/ialdrich23xx/libasynWeebhook-PM/actions/workflows/phpstan.yml)
-[![License](https://img.shields.io/github/license/ialdrich23xx/libasynWeebhook-PM)](https://github.com/iAldrich23xX/libasynWeebhook-PM/blob/pmmp4/LICENSE)
+[![License](https://img.shields.io/github/license/iAldrich23xX/libasynWeebhook-PM)](https://github.com/iAldrich23xX/libasynWeebhook-PM/blob/pmmp4/LICENSE)
 
 <a>PMMP4</a> <a>PMMP5</a>
 
