@@ -3,8 +3,8 @@
 <img align="left" width="0" height="140px" hspace="10"/>
 
 # libasynWebHook
-[![PHPStan](https://github.com/ialdrich23xx/libasynWeebhook-PM/actions/workflows/phpstan.yml/badge.svg)](https://github.com/ialdrich23xx/libasynWeebhook-PM/actions/workflows/phpstan.yml)
-[![License](https://img.shields.io/github/license/iAldrich23xX/libasynWeebhook-PM)](https://github.com/iAldrich23xX/libasynWeebhook-PM/blob/pmmp4/LICENSE)
+[![PHPStan](https://github.com/ialdrich23xx/libasynWeebhook/actions/workflows/phpstan.yml/badge.svg)](https://github.com/ialdrich23xx/libasynWeebhook/actions/workflows/phpstan.yml)
+[![License](https://img.shields.io/github/license/iAldrich23xX/libasynWeebhook)](https://github.com/iAldrich23xX/libasynWeebhook/blob/pmmp4/LICENSE)
 
 <a>PMMP4</a> <a>PMMP5</a>
 
@@ -37,7 +37,8 @@ class Main extends \pocketmine\plugin\PluginBase
 #### Import the classes
 
 ```php
-
+use ialdrich23xx\libasynwebhook\discord\WebHook;
+use ialdrich23xx\libasynwebhook\discord\body\Base;
 
 ```
 
@@ -45,11 +46,12 @@ class Main extends \pocketmine\plugin\PluginBase
 
 ```php
 WebHook::make("your_url", Base::make()
-            ->setAvatar("url_avatar")
-            ->setContent("text content")
-            ->setUsername("username")
-            ->setTextToSpeech(false) //enable tts
-        )->send(); //function for send message to channel
+    //Optional methods
+    ->setAvatar("url_avatar")
+    ->setContent("text content")
+    ->setUsername("username")
+    ->setTextToSpeech(false) //enable tts
+)->send(); //function for send message to channel
 ```
 
 #### OR
@@ -74,19 +76,28 @@ $webHook->send(); //function for send message to channel
 
 ```php
 //Import the classes
-use src\ialdrich23xx\libasynwebhook\discord\body\Base;use src\ialdrich23xx\libasynwebhook\discord\body\embed\Author;use src\ialdrich23xx\libasynwebhook\discord\body\embed\EmbedColors;use src\ialdrich23xx\libasynwebhook\discord\body\embed\EmbedManager;use src\ialdrich23xx\libasynwebhook\discord\body\embed\Field;use src\ialdrich23xx\libasynwebhook\discord\body\embed\Footer;use src\ialdrich23xx\libasynwebhook\discord\body\embed\Thumbnail;use src\ialdrich23xx\libasynwebhook\discord\body\embed\Timestamp;use src\ialdrich23xx\libasynwebhook\discord\WebHook;
+use ialdrich23xx\libasynwebhook\discord\body\Base;
+use ialdrich23xx\libasynwebhook\discord\body\embed\Author;
+use ialdrich23xx\libasynwebhook\discord\body\embed\EmbedColors;
+use ialdrich23xx\libasynwebhook\discord\body\embed\EmbedManager;
+use ialdrich23xx\libasynwebhook\discord\body\embed\Field;
+use ialdrich23xx\libasynwebhook\discord\body\embed\Footer;
+use ialdrich23xx\libasynwebhook\discord\body\embed\Thumbnail;
+use ialdrich23xx\libasynwebhook\discord\body\embed\Timestamp;
+use ialdrich23xx\libasynwebhook\discord\WebHook;
 
 WebHook::make("your_url", Base::make()
     ->addEmbed(EmbedManager::make("title", "description", EmbedColors::Green)
+        //Optional methods
         ->setFooter(Footer::make("text footer")
-            ->setIcon("icon")) //optional
+            ->setIcon("icon"))
         ->setAuthor(Author::make("name")
-            ->setIcon("icon") //optional
-            ->setUrl("url")) //optional
+            ->setIcon("icon")
+            ->setUrl("url"))
         ->setTimestamp(Timestamp::make(new DateTime("now"))
-            ->setTimeZone("UTC")) //Optional
+            ->setTimeZone("UTC"))
         ->addField(Field::make("name", "value")
-            ->setInline(false)) //optional
+            ->setInline(false))
         ->setThumbnail(Thumbnail::make("url"))
     )
 )->send();

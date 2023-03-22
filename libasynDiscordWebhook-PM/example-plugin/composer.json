@@ -16,7 +16,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "git@github.com:iAldrich23xX/libasynWeebhook-PM.git"
+      "url": "git@github.com:iAldrich23xX/libasynWeebhook.git"
     }
   ],
   "require": {
