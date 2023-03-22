@@ -6,6 +6,3 @@
         <img align="center" src="embed-example.png" alt="example">
     </picture>
 </p>
-
----
-## installation
