@@ -1,5 +1,5 @@
 ---
-<img align="left" width="140px" height="140px" src="icon.jpg" alt="icon">
+<img align="left" width="140px" height="140px" src="icon.png" alt="icon">
 <img align="left" width="0" height="140px" hspace="10"/>
 
 # libasynWebHook
