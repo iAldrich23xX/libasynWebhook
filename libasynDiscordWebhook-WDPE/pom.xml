@@ -11,7 +11,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <wdpe-version>1.2.5-SNAPSHOT</wdpe-version>
+        <wdpe-version>1.2.2-SNAPSHOT</wdpe-version>
         <lombok-version>1.18.26</lombok-version>
     </properties>
 
@@ -19,6 +19,14 @@
         <repository>
             <id>waterdog-repo</id>
             <url>https://repo.waterdog.dev/artifactory/main</url>
+        </repository>
+        <repository>
+            <id>nukkitx-repo-release</id>
+            <url>https://repo.opencollab.dev/maven-releases/</url>
+        </repository>
+        <repository>
+            <id>nukkitx-repo-snapshot</id>
+            <url>https://repo.opencollab.dev/maven-snapshots/</url>
         </repository>
     </repositories>
 
