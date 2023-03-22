@@ -4,7 +4,7 @@ branches:
 - pmmp4
 projects:
   libasynWeebHook-PM:
-    path: ""
+    path: libasynDiscordWebhook-PM
     model: virion
     type: library
 ...
