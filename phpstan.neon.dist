@@ -13,4 +13,6 @@ parameters:
             - .github
             - vendor
             - libasynDiscordWebhook-PM/example-plugin
+            - libasynDiscordWebhook-WDPE
+            - libasynDiscordWebhook-Nukkit
     treatPhpDocTypesAsCertain: false

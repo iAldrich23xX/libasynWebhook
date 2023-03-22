@@ -3,10 +3,10 @@
 <img align="left" width="0" height="140px" hspace="10"/>
 
 # libasynWebHook
-[![PHPStan](https://github.com/ialdrich23xx/libasynWeebhook/actions/workflows/phpstan.yml/badge.svg)](https://github.com/ialdrich23xx/libasynWeebhook/actions/workflows/phpstan.yml)
-[![License](https://img.shields.io/github/license/iAldrich23xX/libasynWeebhook)](https://github.com/iAldrich23xX/libasynWeebhook/blob/pmmp4/LICENSE)
+[![PHPStan](https://github.com/iAldrich23xX/libasynWebhook/blob/master/.github/workflows/phpstan.yml/badge.svg)](https://github.com/iAldrich23xX/libasynWebhook/actions/workflows/phpstan.yml)
+[![License](https://img.shields.io/github/license/iAldrich23xX/libasynWeebhook)](https://github.com/iAldrich23xX/libasynWebhook/blob/master/LICENSE)
 
-<a>PMMP4</a> <a>PMMP5</a>
+<a>PMMP4</a> <a>PMMP5</a> <a>Nukkit</a> <a>WaterdogPE</a>
 
 ---
 
@@ -110,7 +110,7 @@ WebHook::make("your_url", Base::make()
 
 <p>Integrate the virion itself into your plugin, or you could also use it as a composer library by running the command below:</p>
 
-    composer require ialdrich23xx/libasynwebhook dev-pmmp4
+    composer require ialdrich23xx/libasynwebhook dev-master
 
 ### COMPOSER
 
@@ -125,7 +125,7 @@ add in your "composer.json" and use `composer install`
 ],
 "require": {
     "php": "^8.0",
-    "ialdrich23xx/libasynwebhook": "dev-pmmp4"
+    "ialdrich23xx/libasynwebhook": "dev-master"
   },
 ```
 
@@ -139,7 +139,7 @@ add in your "composer.json" and use `composer install`
 --- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/YourGithubUserName/YourPluginName
 build-by-default: true
 branches:
-- pmmp4
+- master
 projects:
   YourPluginName:
     path: ""
