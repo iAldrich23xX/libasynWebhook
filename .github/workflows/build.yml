@@ -1,4 +1,4 @@
-name: Release Composer Projects
+name: Project
 
 on:
   push:
@@ -7,13 +7,15 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
-    name: Create Build
+  buildphp:
+    name: Create Build PHP
     if: "startsWith(github.event.head_commit.message, '[Release] ')"
     runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: true
 
       - uses: robinraju/release-downloader@v1.7
         with:
@@ -56,16 +58,31 @@ jobs:
           ./../../.github/bin/php7/bin/php -dphar.readonly=0 ./../../.phar-builder/iAldrich23xX/plugin/BuildScript.php --make . --out pmmp4-example-${{ steps.yaml-data.outputs.data }}.phar
           echo Build completed!
 
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'corretto'
+          cache: maven
+
+      - name: Build
+        run: mvn clean package
+
+      - name: Get Maven version
+        run: |
+          VERSION=$(mvn -q -Dexec.executable='echo' -Dexec.args='${project.version}' --non-recursive exec:exec)
+          echo "VERSION=${VERSION}" >> $GITHUB_ENV     
+
       - name: Upload Artifact
         uses: ncipollo/release-action@v1.12.0
         with:
-          artifacts: ${{ github.workspace }}/libasynDiscordWebHook-PM/example-plugin/pmmp4-example-${{ steps.yaml-data.outputs.data }}.phar
+          artifacts: ${{ github.workspace }}/libasynDiscordWebHook-API/target/libasynDiscordWebHook-API-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-Nukkit/target/libasynDiscordWebHook-Nukkit-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-Nukkit/nukkit-example/target/nukkit-example-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-PM/example-plugin/pmmp4-example-${{ steps.yaml-data.outputs.data }}.phar
           draft: false
-          name: Release v${{ steps.yaml-data.outputs.data }}-pmmp
-          tag: ${{ steps.yaml-data.outputs.data }}-pmmp
+          name: Release v${{ env.VERSION }}
+          tag: ${{ env.VERSION }}
           token: ${{ secrets.GITHUB_TOKEN }}
           body: "The artifacts are kept up to date with the branch release."
           commit: ${{ github.sha }}
           allowUpdates: true
           removeArtifacts: true
-          replacesArtifacts: true
+          replacesArtifacts: true      
