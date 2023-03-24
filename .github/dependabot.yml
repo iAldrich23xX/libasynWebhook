@@ -9,7 +9,11 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "composer"
-    directory: "/libasynWebhook-PM/example-plugin/"
+    directory: "/libasynWebHook-PM/example-plugin/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "maven"
+    directory: "/"
     schedule:
       interval: "daily"
   - package-ecosystem: "maven"

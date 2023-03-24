@@ -5,7 +5,7 @@
   "license": "Apache-2.0",
   "autoload": {
     "psr-4": {
-      "ialdrich23xx\\libasynwebhook\\": "libasynDiscordWebhook-PM/src/ialdrich23xx/libasynwebhook/"
+      "ialdrich23xx\\libasynwebhook\\": "libasynDiscordWebHook-PM/src/ialdrich23xx/libasynwebhook/"
     }
   },
   "require": {

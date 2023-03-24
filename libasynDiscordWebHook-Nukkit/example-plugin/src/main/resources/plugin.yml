@@ -1,5 +1,0 @@
-name: example-plugin-libasynWebHook
-main: com.ialdrich23xx.Main
-api: 1.0.0
-version: ${project.version}
-author: iAldrich23xX

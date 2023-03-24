@@ -1,0 +1,49 @@
+name: Release Maven Projects
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    name: Create Build
+    if: "startsWith(github.event.head_commit.message, '[Release] ')"
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: robinraju/release-downloader@v1.7
+        with:
+          repository: "pmmp/PHP-Binaries"
+          tag: "php-8.0-latest"
+          fileName: "PHP-Linux-x86_64-PM4.tar.gz"
+
+      - name: Prepare PHP
+        run: |
+          tar -xvzf PHP-Linux-x86_64-PM4.tar.gz -C ./.github/
+          rm -r PHP-Linux-x86_64-PM4.tar.gz
+
+      - uses: robinraju/release-downloader@v1.7
+        with:
+          repository: "iAldrich23xX/Phar-Builder"
+          tag: "v1.0"
+          token: ${{ secrets.INTERNAL_TOKEN }}
+          fileName: "PharBuilder.zip"
+
+      - name: Prepare PharBuilder
+        run: |
+          mkdir .phar-builder
+          unzip PharBuilder.zip -d ./.phar-builder/
+
+      - name: Get Plugin version
+        id: yaml-data
+        uses: jbutcher5/read-yaml@main
+        with:
+          file: './libasynDiscordWebHook-PM/example-plugin/plugin.yml'
+          key-path: '["version"]'
+
+      - name: Set plugin version
+        run: echo "${{ steps.yaml-data.outputs.data }}"

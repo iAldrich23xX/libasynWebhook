@@ -1,6 +1,7 @@
 /.idea/
 *.phar
 *.lock
+*.iml
 /vendor/
 /libasynDiscordWebHook-WDPE/.idea/
 /libasynDiscordWebHook-WDPE/target/

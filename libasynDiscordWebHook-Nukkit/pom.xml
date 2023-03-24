@@ -2,10 +2,14 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.ialdrich23xx</groupId>
-    <artifactId>libasynwebhook</artifactId>
-    <packaging>jar</packaging>
-    <version>1.0.0</version>
+    <parent>
+        <groupId>com.ialdrich23xx</groupId>
+        <artifactId>libasynwebhook</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <groupId>com.ialdrich23xx.libasynwebhook.nukkit</groupId>
+    <artifactId>libasynDiscordWebHook-Nukkit</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -53,8 +57,12 @@
     </dependencies>
 
     <build>
-        <finalName>libasynWebHook-${project.version}</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -66,28 +74,19 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>module-info.class</exclude>
+                                        <exclude>META-INF/*</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
-                <configuration>
-                    <release>${maven.compiler.source}</release>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>${lombok-version}</version>
-                        </path>
-                    </annotationProcessorPaths>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
             </plugin>
         </plugins>
 
