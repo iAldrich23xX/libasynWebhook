@@ -91,5 +91,5 @@ jobs:
           body: "The artifacts are kept up to date with the branch release."
           commit: ${{ github.sha }}
           allowUpdates: true
-          removeArtifacts: true
-          replacesArtifacts: true      
+          removeArtifacts: false
+          replacesArtifacts: false
