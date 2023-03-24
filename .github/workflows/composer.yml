@@ -1,4 +1,4 @@
-name: Release Composer Projects
+name: Release Maven Projects
 
 on:
   push:
@@ -45,5 +45,13 @@ jobs:
           file: './libasynDiscordWebHook-PM/example-plugin/plugin.yml'
           key-path: '["version"]'
 
-      - name: Set plugin version
-        run: echo "${{ steps.yaml-data.outputs.data }}"
+      - name: Compile example-plugins
+        run: |
+          echo "Building"
+          cd /libasynDiscordWebHook-PM/example-plugin/
+          wget https://getcomposer.org/download/latest-stable/composer.phar
+          echo "Composer intalling..."
+          /.github/bin/php7/bin/php composer.phar install --prefer-dist --no-interaction --no-dev
+          rm -r composer.phar
+          /.github/bin/php7/bin/php -dphar.readonly=0 /.phar-builder/iAldrich23xX/plugin/BuildScript.php --make . --out Example-Plugin-PM4-${{ steps.yaml-data.outputs.data }}.phar
+          echo Build completed!
