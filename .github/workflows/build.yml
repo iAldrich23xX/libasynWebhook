@@ -54,13 +54,6 @@ jobs:
           ./../../.github/bin/php7/bin/php -dphar.readonly=0 ./../../.phar-builder/PharBuilder/virion/VirionBuildScript.php --make . --out libasynWebHook-PM-virion-${{ steps.yaml-data.outputs.data }}.phar
           echo "Build completed!"
 
-      - name: Get Plugins-Example version
-        id: yaml-data
-        uses: jbutcher5/read-yaml@main
-        with:
-          file: './libasynDiscordWebHook-PM/example-plugin/plugin.yml'
-          key-path: '["version"]'
-
       - name: Compile example-plugins
         run: |
           echo "Building"
