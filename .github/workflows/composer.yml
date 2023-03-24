@@ -1,4 +1,4 @@
-name: Release Maven Projects
+name: Release Composer Projects
 
 on:
   push:
@@ -48,7 +48,7 @@ jobs:
       - name: Compile example-plugins
         run: |
           echo "Building"
-          cd /libasynDiscordWebHook-PM/example-plugin/
+          cd /libasynDiscordWebHook-PM/example-plugin
           wget https://getcomposer.org/download/latest-stable/composer.phar
           echo "Composer intalling..."
           /.github/bin/php7/bin/php composer.phar install --prefer-dist --no-interaction --no-dev
