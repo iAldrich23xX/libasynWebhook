@@ -58,7 +58,7 @@ jobs:
           ls
 
       - name: Upload Artifact
-        uses: ncipollo/release-action@v1.10.0
+        uses: ncipollo/release-action@v1.12.0
         with:
           artifacts: ${{ github.workspace }}/libasynDiscordWebHook-PM/example-plugin/*.phar
           draft: false
