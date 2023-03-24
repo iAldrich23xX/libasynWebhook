@@ -5,6 +5,12 @@ declare(strict_types=1);
 namespace ialdrich23xx\libasynwebhook\discord\body\embed;
 
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\Structure;
+use ialdrich23xx\libasynwebhook\discord\body\embed\components\Author;
+use ialdrich23xx\libasynwebhook\discord\body\embed\components\Field;
+use ialdrich23xx\libasynwebhook\discord\body\embed\components\Footer;
+use ialdrich23xx\libasynwebhook\discord\body\embed\components\Image;
+use ialdrich23xx\libasynwebhook\discord\body\embed\components\Thumbnail;
+use ialdrich23xx\libasynwebhook\discord\body\embed\components\Timestamp;
 use ialdrich23xx\libasynwebhook\Loader;
 use function is_null;
 use function strlen;
@@ -73,7 +79,9 @@ class EmbedManager extends Structure
 
     public function setAuthor(Author $author): self
     {
-        $this->author = $author;
+        if (!$author->build()) {
+            Loader::getInstance()->getPlugin()->getLogger()->error("Author is invalid: " . $author->toString());
+        } else $this->author = $author;
 
         return $this;
     }
@@ -137,7 +145,9 @@ class EmbedManager extends Structure
 
     public function setThumbnail(Thumbnail $thumbnail): self
     {
-        $this->thumbnail = $thumbnail;
+        if (!$thumbnail->build()) {
+            Loader::getInstance()->getPlugin()->getLogger()->error("Thumbnail is invalid: " . $thumbnail->toString());
+        } else $this->thumbnail = $thumbnail;
 
         return $this;
     }
@@ -156,7 +166,9 @@ class EmbedManager extends Structure
 
     public function setImage(Image $image): self
     {
-        $this->image = $image;
+        if (!$image->build()) {
+            Loader::getInstance()->getPlugin()->getLogger()->error("Image is invalid: " . $image->toString());
+        } else $this->image = $image;
 
         return $this;
     }
@@ -196,7 +208,7 @@ class EmbedManager extends Structure
 
     public function build(): bool
     {
-        return strlen($this->getTitle()) !== 0 && strlen($this->getDescription()) !== 0 && !empty($this->getFields());
+        return strlen($this->getTitle()) !== 0 && strlen($this->getDescription()) !== 0 || !empty($this->getFields());
     }
 
     public function toArray(): array

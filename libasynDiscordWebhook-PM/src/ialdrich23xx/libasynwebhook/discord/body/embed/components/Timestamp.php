@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ialdrich23xx\libasynwebhook\discord\body\embed;
+namespace ialdrich23xx\libasynwebhook\discord\body\embed\components;
 
 use DateTime;
 use DateTimeZone;
@@ -63,7 +63,7 @@ class Timestamp extends Structure
 
     public function toString(): string
     {
-        return "Timestamp(data=DateTime,timezone=" . $this->timezone . ")";
+        return "Timestamp(data=" . $this->getData()->format(Timestamp::FORMAT) . ",timezone=" . $this->timezone . ")";
     }
 
     /**

@@ -4,7 +4,7 @@ import java.util.Map;
 
 public interface Name {
     String getName();
-    void setName(String newName);
+    Structure setName(String newName);
     Map<String, Object> nameToArray();
     String nameToString();
 }

@@ -3,8 +3,9 @@ package com.ialdrich23xx.discord.body.embed.base;
 import java.util.Map;
 
 public interface IconURL {
-    void setIcon(String icon);
+    Structure setIcon(String icon);
     String getIcon();
+    Boolean iconBuild();
     Map<String, Object> iconToArray();
     String iconToString();
 }

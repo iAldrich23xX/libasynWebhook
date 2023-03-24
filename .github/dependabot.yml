@@ -8,3 +8,11 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+  - package-ecosystem: "maven"
+    directory: "/libasynWebHook-Nukkit/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "maven"
+    directory: "/libasynWebHook-WDPE/"
+    schedule:
+      interval: "daily"

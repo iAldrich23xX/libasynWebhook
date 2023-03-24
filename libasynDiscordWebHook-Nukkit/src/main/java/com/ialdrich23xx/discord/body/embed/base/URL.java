@@ -3,8 +3,9 @@ package com.ialdrich23xx.discord.body.embed.base;
 import java.util.Map;
 
 public interface URL {
-    void setUrl(String url);
+    Structure setUrl(String url);
     String getUrl();
+    Boolean urlBuild();
     Map<String, Object> urlToArray();
     String urlToString();
 }

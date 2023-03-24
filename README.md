@@ -77,13 +77,13 @@ $webHook->send(); //function for send message to channel
 ```php
 //Import the classes
 use ialdrich23xx\libasynwebhook\discord\body\Base;
-use ialdrich23xx\libasynwebhook\discord\body\embed\Author;
+use ialdrich23xx\libasynwebhook\discord\body\embed\components\Author;
+use ialdrich23xx\libasynwebhook\discord\body\embed\components\Field;
+use ialdrich23xx\libasynwebhook\discord\body\embed\components\Footer;
+use ialdrich23xx\libasynwebhook\discord\body\embed\components\Thumbnail;
+use ialdrich23xx\libasynwebhook\discord\body\embed\components\Timestamp;
 use ialdrich23xx\libasynwebhook\discord\body\embed\EmbedColors;
 use ialdrich23xx\libasynwebhook\discord\body\embed\EmbedManager;
-use ialdrich23xx\libasynwebhook\discord\body\embed\Field;
-use ialdrich23xx\libasynwebhook\discord\body\embed\Footer;
-use ialdrich23xx\libasynwebhook\discord\body\embed\Thumbnail;
-use ialdrich23xx\libasynwebhook\discord\body\embed\Timestamp;
 use ialdrich23xx\libasynwebhook\discord\WebHook;
 
 WebHook::make("your_url", Base::make()

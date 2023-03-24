@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ialdrich23xx\libasynwebhook\discord\body\embed;
+namespace ialdrich23xx\libasynwebhook\discord\body\embed\components;
 
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\IconURL;
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\Name;
@@ -48,6 +48,6 @@ class Author extends Structure
 
     public function toString(): string
     {
-        return "Field(" . $this->nameToString() . "," . $this->urlToString() . "," . $this->iconToString() . ")";
+        return "Author(" . $this->nameToString() . "," . $this->urlToString() . "," . $this->iconToString() . ")";
     }
 }
