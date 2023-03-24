@@ -33,7 +33,7 @@ jobs:
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
 
       - name: Upload Artifact
-        uses: ncipollo/release-action@v1.10.0
+        uses: ncipollo/release-action@v1.12.0
         with:
           artifacts: ${{ github.workspace }}/libasynDiscordWebHook-API/target/libasynDiscordWebHook-API-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-Nukkit/target/libasynDiscordWebHook-Nukkit-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-Nukkit/nukkit-example/target/nukkit-example-${{ env.VERSION }}.jar
           draft: false
