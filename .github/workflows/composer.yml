@@ -53,7 +53,7 @@ jobs:
           echo "Composer intalling..."
           ./../../.github/bin/php7/bin/php composer.phar install --prefer-dist --no-interaction --no-dev
           rm -r composer.phar
-          ./../../.github/bin/php7/bin/php -dphar.readonly=0 ./../../.phar-builder/iAldrich23xX/plugin/BuildScript.php --make . --out Example-Plugin-PM4-${{ steps.yaml-data.outputs.data }}.phar
+          ./../../.github/bin/php7/bin/php -dphar.readonly=0 ./../../.phar-builder/iAldrich23xX/plugin/BuildScript.php --make . --out pmmp4-example-${{ steps.yaml-data.outputs.data }}.phar
           echo Build completed!
           ls
 

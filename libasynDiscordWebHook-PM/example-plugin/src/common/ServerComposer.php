@@ -44,7 +44,7 @@ class ServerComposer
         require_once $vendor;
 
         $this->registerExternalComposerLibToPMMP('Paragi\\PhpWebsocket\\', 'paragi', 'php-websocket-client');
-        $this->registerExternalComposerLibToPMMP('ialdrich23xx\\libasynwebhook\\', 'ialdrich23xx', 'ialdrich23xx');
+        $this->registerExternalComposerLibToPMMP('ialdrich23xx\\libasynwebhook\\', 'ialdrich23xx', 'libasynwebhook', "libasynDiscordWebHook-PM");
 
         $logger->info(TextFormat::colorize('&aComposer autoloader loaded!'));
     }
