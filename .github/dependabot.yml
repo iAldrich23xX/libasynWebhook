@@ -21,7 +21,7 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "maven"
-    directory: "/libasynWebHook-Nukkit/example-plugin/"
+    directory: "/libasynWebHook-Nukkit/nukkit-example/"
     schedule:
       interval: "daily"
   - package-ecosystem: "maven"

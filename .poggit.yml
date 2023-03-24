@@ -5,7 +5,7 @@ branches:
 - pmmp5
 projects:
   libasynWebHook:
-    path: libasynDiscordWebhook-PM
+    path: libasynDiscordWebHook-PM
     model: virion
     type: library
 ...
