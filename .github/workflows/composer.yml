@@ -60,7 +60,7 @@ jobs:
       - name: Upload Artifact
         uses: ncipollo/release-action@v1.12.0
         with:
-          artifacts: ${{ github.workspace }}/libasynDiscordWebHook-PM/example-plugin/*.phar
+          artifacts: ${{ github.workspace }}/libasynDiscordWebHook-PM/example-plugin/pmmp4-example-${{ steps.yaml-data.outputs.data }}.phar
           draft: false
           name: Release v${{ steps.yaml-data.outputs.data }}
           tag: ${{ steps.yaml-data.outputs.data }}
