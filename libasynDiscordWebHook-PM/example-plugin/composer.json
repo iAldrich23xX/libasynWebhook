@@ -1,5 +1,5 @@
 {
-  "name": "ialdrich23xx/libasynwebhook",
+  "name": "ialdrich23xx/libasynwebhook-example",
   "description": "Plugin example for libasyn WebHook",
   "type": "project",
   "autoload": {
@@ -16,7 +16,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "git@github.com:iAldrich23xX/libasynWeebhook.git"
+      "url": "git@github.com:iAldrich23xX/libasynWebhook.git"
     }
   ],
   "require": {

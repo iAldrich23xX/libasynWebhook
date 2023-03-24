@@ -38,7 +38,7 @@ jobs:
           mkdir .phar-builder
           unzip PharBuilder.zip -d ./.phar-builder/
 
-      - name: Get Plugin version
+      - name: Get Plugins-Example version
         id: yaml-data
         uses: jbutcher5/read-yaml@main
         with:
@@ -55,3 +55,17 @@ jobs:
           rm -r composer.phar
           ./../../.github/bin/php7/bin/php -dphar.readonly=0 ./../../.phar-builder/iAldrich23xX/plugin/BuildScript.php --make . --out Example-Plugin-PM4-${{ steps.yaml-data.outputs.data }}.phar
           echo Build completed!
+
+      - name: Upload Artifact
+        uses: ncipollo/release-action@v1.10.0
+        with:
+          artifacts: ${{ github.workspace }}/libasynDiscordWebHook-PM/example-plugin/Example-Plugin-PM4-${{ steps.yaml-data.outputs.data }}.phar
+          draft: false
+          name: Release v${{ steps.yaml-data.outputs.data }}
+          tag: ${{ steps.yaml-data.outputs.data }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: "The artifacts are kept up to date with the branch release."
+          commit: ${{ github.sha }}
+          allowUpdates: true
+          removeArtifacts: true
+          replacesArtifacts: true
