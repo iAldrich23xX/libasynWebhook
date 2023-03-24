@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ialdrich23xx\libasynwebhook\discord\body\embed;
+namespace ialdrich23xx\libasynwebhook\discord\body\embed\components;
 
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\Structure;
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\URL;

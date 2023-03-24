@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace ialdrich23xx\example;
 
-use JsonException;
 use common\ServerComposer;
 use ialdrich23xx\libasynwebhook\discord\body\Base;
-use ialdrich23xx\libasynwebhook\discord\body\embed\Author;
+use ialdrich23xx\libasynwebhook\discord\body\embed\components\Author;
+use ialdrich23xx\libasynwebhook\discord\body\embed\components\Footer;
 use ialdrich23xx\libasynwebhook\discord\body\embed\EmbedColors;
 use ialdrich23xx\libasynwebhook\discord\body\embed\EmbedManager;
-use ialdrich23xx\libasynwebhook\discord\body\embed\Footer;
 use ialdrich23xx\libasynwebhook\discord\WebHook;
 use ialdrich23xx\libasynwebhook\Loader;
+use JsonException;
 
 class Main extends \pocketmine\plugin\PluginBase
 {

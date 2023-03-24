@@ -31,9 +31,11 @@ class WebHook
         return $this->body;
     }
 
-    public function setBody(Base $body): void
+    public function setBody(Base $body): self
     {
         $this->body = $body;
+
+        return $this;
     }
 
 	/**

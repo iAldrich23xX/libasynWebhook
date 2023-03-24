@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ialdrich23xx\libasynwebhook\discord\body\embed;
+namespace ialdrich23xx\libasynwebhook\discord\body\embed\components;
 
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\Name;
 use ialdrich23xx\libasynwebhook\discord\body\embed\base\Structure;
@@ -25,6 +25,13 @@ class Field extends Structure
         return new self($name, $value, $inline);
     }
 
+    public function setValue(string $value): self
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
     public function getValue(): string
     {
         return $this->value;
@@ -44,9 +51,7 @@ class Field extends Structure
 
     public function build(): bool
     {
-        if (strlen($this->getName()) === 0 || strlen($this->getValue()) === 0) return false;
-
-        return true;
+        return strlen($this->getName()) !== 0 && strlen($this->getValue()) !== 0;
     }
 
     public function toArray(): array

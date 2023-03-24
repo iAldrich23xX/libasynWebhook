@@ -10,6 +10,7 @@ use ialdrich23xx\libasynwebhook\discord\body\embed\EmbedManager;
 use ialdrich23xx\libasynwebhook\Loader;
 use function count;
 use function is_null;
+use function strlen;
 
 class Base extends Structure implements JsonSerializable
 {
@@ -100,7 +101,7 @@ class Base extends Structure implements JsonSerializable
     {
         if (!is_null($this->getAvatar()) && !Loader::getInstance()->isValidUrl($this->getAvatar())) return false;
 
-        return !is_null($this->getContent()) && !is_null($this->getUsername()) && !is_null($this->getAvatar()) && !empty($this->getEmbeds());
+        return (!is_null($this->getContent()) && strlen($this->getContent()) !== 0) || !empty($this->getEmbeds());
     }
 
     public function jsonSerialize(): array
