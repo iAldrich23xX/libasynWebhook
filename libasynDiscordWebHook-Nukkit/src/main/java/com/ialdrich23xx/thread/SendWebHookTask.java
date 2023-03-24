@@ -1,11 +1,15 @@
 package com.ialdrich23xx.thread;
 
 import cn.nukkit.scheduler.AsyncTask;
+import com.ialdrich23xx.Loader;
 import com.ialdrich23xx.discord.WebHook;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.OutputStream;
+import java.net.URI;
 import java.net.URL;
+import java.net.http.HttpRequest;
+import java.time.Duration;
 
 public class SendWebHookTask extends AsyncTask {
 
@@ -38,7 +42,7 @@ public class SendWebHookTask extends AsyncTask {
 
             connection.disconnect();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Loader.getInstance().getLogger().error("Error SendWebhookTask: " + e.getMessage());
         }
     }
 }
