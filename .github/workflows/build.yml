@@ -85,7 +85,7 @@ jobs:
         with:
           artifacts: ${{ github.workspace }}/libasynDiscordWebHook-PM/example-plugin/*.phar, ${{ github.workspace }}/libasynDiscordWebHook-PM/*.phar
           draft: false
-          name: Release v${{ env.VERSION }}-PMMP5
+          name: Release v${{ env.VERSION }}
           tag: ${{ env.VERSION }}
           token: ${{ secrets.GITHUB_TOKEN }}
           body: "The artifacts are kept up to date with the branch release."
