@@ -8,8 +8,16 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+  - package-ecosystem: "composer"
+    directory: "/libasynWebhook-PM/example-plugin/"
+    schedule:
+      interval: "daily"
   - package-ecosystem: "maven"
     directory: "/libasynWebHook-Nukkit/"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "maven"
+    directory: "/libasynWebHook-Nukkit/example-plugin/"
     schedule:
       interval: "daily"
   - package-ecosystem: "maven"
