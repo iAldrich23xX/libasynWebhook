@@ -2,9 +2,9 @@
 *.phar
 *.lock
 /vendor/
-/libasynDiscordWebhook-WDPE/.idea/
-/libasynDiscordWebhook-WDPE/target/
-/libasynDiscordWebhook-Nukkit/.idea/
-/libasynDiscordWebhook-Nukkit/target/
+/libasynDiscordWebHook-WDPE/.idea/
+/libasynDiscordWebHook-WDPE/target/
+/libasynDiscordWebHook-Nukkit/.idea/
+/libasynDiscordWebHook-Nukkit/target/
 /libasynDiscordWebHook-API/target/
 /libasynDiscordWebHook-API/.idea/

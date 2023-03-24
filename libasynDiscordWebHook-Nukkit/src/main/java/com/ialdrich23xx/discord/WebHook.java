@@ -38,7 +38,7 @@ public class WebHook {
             return;
         }
 
-        if (Loader.getInstance().isValidUrl(this.getUrl())) {
+        if (Loader.getInstance().isValidUrl(this.getUrl()) && this.getBody().build()) {
             Loader.getInstance().getThreadPool().submit(new SendWebHookTask(this));
         } else Loader.getInstance().getLogger().error("Url not valid: " + this.getUrl());
     }
