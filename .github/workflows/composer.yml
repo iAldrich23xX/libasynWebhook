@@ -57,6 +57,7 @@ jobs:
           echo Build completed!
           ls
           pwd
+          echo ${{ github.workspace }}
 
       - name: Upload Artifact
         uses: ncipollo/release-action@v1.12.0
