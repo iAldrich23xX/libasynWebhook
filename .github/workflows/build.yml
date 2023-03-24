@@ -7,8 +7,8 @@ on:
     branches: [ "master" ]
 
 jobs:
-  buildphp:
-    name: Create Build PHP
+  build:
+    name: Create Build
     if: "startsWith(github.event.head_commit.message, '[Release] ')"
     runs-on: ubuntu-20.04
 
@@ -40,6 +40,20 @@ jobs:
           mkdir .phar-builder
           unzip PharBuilder.zip -d ./.phar-builder/
 
+      - name: Get Virion version
+        id: yaml-data
+        uses: jbutcher5/read-yaml@main
+        with:
+          file: './libasynDiscordWebHook-PM/virion.yml'
+          key-path: '["version"]'
+
+      - name: Compile virion
+        run: |
+          echo "Building"
+          cd libasynDiscordWebHook-PM
+          ./../../.github/bin/php7/bin/php -dphar.readonly=0 ./../../.phar-builder/PharBuilder/virion/VirionBuildScript.php --make . --out libasynWebHook-PM-virion-${{ steps.yaml-data.outputs.data }}.phar
+          echo "Build completed!"
+
       - name: Get Plugins-Example version
         id: yaml-data
         uses: jbutcher5/read-yaml@main
@@ -52,11 +66,11 @@ jobs:
           echo "Building"
           cd libasynDiscordWebHook-PM/example-plugin
           wget https://getcomposer.org/download/latest-stable/composer.phar
-          echo "Composer intalling..."
+          echo "Composer installing..."
           ./../../.github/bin/php7/bin/php composer.phar install --prefer-dist --no-interaction --no-dev
           rm -r composer.phar
-          ./../../.github/bin/php7/bin/php -dphar.readonly=0 ./../../.phar-builder/iAldrich23xX/plugin/BuildScript.php --make . --out pmmp4-example-${{ steps.yaml-data.outputs.data }}.phar
-          echo Build completed!
+          ./../../.github/bin/php7/bin/php -dphar.readonly=0 ./../../.phar-builder/PharBuilder/plugin/PluginBuildScript.php --make . --out pmmp4-example-${{ steps.yaml-data.outputs.data }}.phar
+          echo "Build completed!"
 
       - name: Set up JDK 11
         uses: actions/setup-java@v3
@@ -76,7 +90,7 @@ jobs:
       - name: Upload Artifact
         uses: ncipollo/release-action@v1.12.0
         with:
-          artifacts: ${{ github.workspace }}/libasynDiscordWebHook-API/target/libasynDiscordWebHook-API-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-Nukkit/target/libasynDiscordWebHook-Nukkit-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-Nukkit/nukkit-example/target/nukkit-example-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-PM/example-plugin/pmmp4-example-${{ steps.yaml-data.outputs.data }}.phar
+          artifacts: ${{ github.workspace }}/libasynDiscordWebHook-API/target/libasynDiscordWebHook-API-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-Nukkit/target/libasynDiscordWebHook-Nukkit-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-Nukkit/nukkit-example/target/nukkit-example-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-PM/example-plugin/*.phar, ${{ github.workspace }}/libasynDiscordWebHook-PM/*.phar
           draft: false
           name: Release v${{ env.VERSION }}
           tag: ${{ env.VERSION }}
