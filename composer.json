@@ -10,7 +10,7 @@
   },
   "require": {
     "php": "^8.0",
-    "ext-igbinary": "*"
+    "ext-pthreads": "^5.3.0"
   },
   "require-dev": {
     "phpstan/phpstan": "1.10.8"

@@ -111,7 +111,7 @@ WebHook::make("your_url", Base::make()
 
 <p>Integrate the virion itself into your plugin, or you could also use it as a composer library by running the command below:</p>
 
-    composer require ialdrich23xx/libasynwebhook dev-master
+    composer require ialdrich23xx/libasynwebhook dev-pmmp5
 
 ### COMPOSER
 
@@ -126,7 +126,7 @@ add in your "composer.json" and use `composer install`
 ],
 "require": {
     "php": "^8.0",
-    "ialdrich23xx/libasynwebhook": "dev-master"
+    "ialdrich23xx/libasynwebhook": "dev-pmmp5"
   },
 ```
 
