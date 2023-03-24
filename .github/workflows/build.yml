@@ -51,7 +51,7 @@ jobs:
         run: |
           echo "Building"
           cd libasynDiscordWebHook-PM
-          ./../../.github/bin/php7/bin/php -dphar.readonly=0 ./../../.phar-builder/PharBuilder/virion/VirionBuildScript.php --make . --out libasynWebHook-PM-virion-${{ steps.yaml-data.outputs.data }}.phar
+          ./../.github/bin/php7/bin/php -dphar.readonly=0 ./../../.phar-builder/PharBuilder/virion/VirionBuildScript.php --make . --out libasynWebHook-PM-virion-${{ steps.yaml-data.outputs.data }}.phar
           echo "Build completed!"
 
       - name: Compile example-plugins
