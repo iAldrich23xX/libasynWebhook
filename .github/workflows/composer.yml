@@ -56,6 +56,7 @@ jobs:
           ./../../.github/bin/php7/bin/php -dphar.readonly=0 ./../../.phar-builder/iAldrich23xX/plugin/BuildScript.php --make . --out pmmp4-example-${{ steps.yaml-data.outputs.data }}.phar
           echo Build completed!
           ls
+          pwd
 
       - name: Upload Artifact
         uses: ncipollo/release-action@v1.12.0
