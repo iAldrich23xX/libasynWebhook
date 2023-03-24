@@ -58,6 +58,7 @@ jobs:
           ls
           pwd
           echo ${{ github.workspace }}
+          echo ${{ steps.yaml-data.outputs.data }}
 
       - name: Upload Artifact
         uses: ncipollo/release-action@v1.12.0
