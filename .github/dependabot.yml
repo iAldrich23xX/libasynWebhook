@@ -16,3 +16,7 @@ updates:
     directory: "/libasynWebHook-WDPE/"
     schedule:
       interval: "daily"
+  - package-ecosystem: "maven"
+    directory: "/libasynWebHook-API/"
+    schedule:
+      interval: "daily"

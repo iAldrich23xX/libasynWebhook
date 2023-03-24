@@ -6,5 +6,7 @@
 /libasynDiscordWebHook-WDPE/target/
 /libasynDiscordWebHook-Nukkit/.idea/
 /libasynDiscordWebHook-Nukkit/target/
+/libasynDiscordWebHook-Nukkit/example-plugin/.idea/
+/libasynDiscordWebHook-Nukkit/example-plugin/target/
 /libasynDiscordWebHook-API/target/
 /libasynDiscordWebHook-API/.idea/
