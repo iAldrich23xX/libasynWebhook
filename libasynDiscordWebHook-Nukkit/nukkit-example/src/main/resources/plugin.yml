@@ -1,5 +1,0 @@
-name: example-plugin-libasynWebHook
-main: com.ialdrich23xx.libasynwebhook.nukkit.example
-api: 1.0.0
-version: ${project.version}
-author: iAldrich23xX

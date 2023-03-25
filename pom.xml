@@ -14,8 +14,6 @@
 
     <modules>
         <module>libasynDiscordWebHook-API</module>
-        <module>libasynDiscordWebHook-Nukkit</module>
-        <module>libasynDiscordWebHook-Nukkit/nukkit-example</module>
     </modules>
 
     <properties>

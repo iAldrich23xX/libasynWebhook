@@ -17,18 +17,6 @@ updates:
     schedule:
       interval: "daily"
   - package-ecosystem: "maven"
-    directory: "/libasynWebHook-Nukkit/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "maven"
-    directory: "/libasynWebHook-Nukkit/nukkit-example/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "maven"
-    directory: "/libasynWebHook-WDPE/"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "maven"
     directory: "/libasynWebHook-API/"
     schedule:
       interval: "daily"
