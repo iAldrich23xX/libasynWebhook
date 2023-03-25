@@ -83,7 +83,7 @@ jobs:
       - name: Upload Artifact
         uses: ncipollo/release-action@v1.12.0
         with:
-          artifacts: ${{ github.workspace }}/libasynDiscordWebHook-API/target/libasynDiscordWebHook-API-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-Nukkit/target/libasynDiscordWebHook-Nukkit-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-Nukkit/nukkit-example/target/nukkit-example-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-PM/example-plugin/*.phar, ${{ github.workspace }}/libasynDiscordWebHook-PM/*.phar
+          artifacts: ${{ github.workspace }}/libasynDiscordWebHook-API/target/libasynDiscordWebHook-API-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-PM/example-plugin/*.phar, ${{ github.workspace }}/libasynDiscordWebHook-PM/*.phar
           draft: false
           name: Release v${{ env.VERSION }}
           tag: ${{ env.VERSION }}
@@ -91,5 +91,5 @@ jobs:
           body: "The artifacts are kept up to date with the branch release."
           commit: ${{ github.sha }}
           allowUpdates: true
-          removeArtifacts: true
-          replacesArtifacts: true      
+          removeArtifacts: false
+          replacesArtifacts: false
