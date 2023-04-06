@@ -21,6 +21,6 @@
   ],
   "require": {
     "php": "^8.0",
-    "ialdrich23xx/libasynwebhook": "dev-master"
+    "ialdrich23xx/libasynwebhook": "dev-pmmp5"
   }
 }
