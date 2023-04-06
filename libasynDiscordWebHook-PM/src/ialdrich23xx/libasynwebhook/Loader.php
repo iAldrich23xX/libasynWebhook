@@ -10,7 +10,9 @@ use pocketmine\scheduler\ClosureTask;
 use pocketmine\Server;
 use pocketmine\utils\SingletonTrait;
 use ialdrich23xx\libasynwebhook\thread\Pool;
+use function filter_var;
 use function is_null;
+use const FILTER_VALIDATE_URL;
 
 class Loader
 {

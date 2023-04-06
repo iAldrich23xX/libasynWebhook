@@ -8,6 +8,7 @@ use JsonException;
 use ialdrich23xx\libasynwebhook\discord\body\Base;
 use ialdrich23xx\libasynwebhook\Loader;
 use ialdrich23xx\libasynwebhook\thread\SendWebHookTask;
+use function is_null;
 
 class WebHook
 {
@@ -38,10 +39,10 @@ class WebHook
         return $this;
     }
 
-	/**
-	 * @throws JsonException
-	 */
-	public function send(): void
+    /**
+     * @throws JsonException
+     */
+    public function send(): void
     {
         if (is_null($this->getBody())) {
             Loader::getInstance()->getPlugin()->getLogger()->error("Body of webhook is null");
@@ -49,7 +50,9 @@ class WebHook
         }
 
         if (Loader::getInstance()->isValidUrl($this->getUrl())) {
-            Loader::getInstance()->getThread()->submitTask(new SendWebHookTask($this));
+            if ($this->getBody()->build()) {
+                Loader::getInstance()->getThread()->submitTask(new SendWebHookTask($this));
+            } else Loader::getInstance()->getPlugin()->getLogger()->error("Webhook build failed");
         } else Loader::getInstance()->getPlugin()->getLogger()->error("Url not valid: " . $this->getUrl());
     }
 }

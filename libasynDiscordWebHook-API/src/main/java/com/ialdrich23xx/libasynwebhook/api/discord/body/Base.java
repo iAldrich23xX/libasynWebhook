@@ -81,8 +81,10 @@ public class Base extends Structure {
     @Override
     public Boolean build() {
         if (this.getAvatar() != null && !Loader.getInstance().isValidUrl(this.getAvatar())) return false;
+        if (this.getContent() == null && this.getEmbeds().isEmpty()) return false;
+        if (this.getContent() != null && this.getContent().length() == 0) return false;
 
-        return (this.getContent() != null || !this.getContent().isEmpty()) || !this.getEmbeds().isEmpty();
+        return true;
     }
 
     @Override
@@ -95,14 +97,12 @@ public class Base extends Structure {
         if (this.getUsername() != null) result.put("username", this.getUsername());
         if (this.getAvatar() != null) result.put("avatar_url", this.getAvatar());
 
-        List<Map<String, Object>> embedList = new ArrayList<>();
+        List<Object> embedList = new ArrayList<>();
 
-        this.getEmbeds().forEach(embed -> {
-            embedList.add(embed.toArray());
-        });
+        this.getEmbeds().forEach(embed -> embedList.add(Loader.getInstance().formatToJson(embed.toArray().entrySet())));
 
         if (!embedList.isEmpty()) {
-            result.put("embeds", embedList);
+            result.put("embeds", embedList.toArray());
         }
 
         return result;
@@ -115,39 +115,7 @@ public class Base extends Structure {
     }
 
     public String toJson() {
-        StringBuilder builder = new StringBuilder();
-
-        Set<Map.Entry<String, Object>> entrySet = this.toArray().entrySet();
-        builder.append("{");
-
-        int i = 0;
-
-        for (Map.Entry<String, Object> entry : entrySet) {
-            Object value = entry.getValue();
-            builder.append(quote(entry.getKey())).append(":");
-
-            if (value instanceof String) {
-                builder.append(quote(String.valueOf(value)));
-            } else if (value instanceof Integer) {
-                builder.append(Integer.valueOf(String.valueOf(value)));
-            } else if (value instanceof Boolean) {
-                builder.append(value);
-            } else if (value.getClass().isArray()) {
-                builder.append("[");
-
-                int len = Array.getLength(value);
-
-                for (int j = 0; j < len; j++) {
-                    builder.append(Array.get(value, j).toString()).append(j != len - 1 ? "," : "");
-                }
-
-                builder.append("]");
-            }
-
-            builder.append(++i == entrySet.size() ? "}" : ",");
-        }
-
-        return builder.toString();
+        return Loader.getInstance().formatToJson(this.toArray().entrySet());
     }
 
     private String quote(String string) {

@@ -7,6 +7,7 @@ namespace ialdrich23xx\libasynwebhook\thread;
 use pocketmine\scheduler\AsyncPool;
 use pocketmine\scheduler\DumpWorkerMemoryTask;
 use pocketmine\scheduler\GarbageCollectionTask;
+use function gc_collect_cycles;
 
 class Pool extends AsyncPool
 {

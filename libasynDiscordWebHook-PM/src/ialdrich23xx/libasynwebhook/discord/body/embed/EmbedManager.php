@@ -237,7 +237,7 @@ class EmbedManager extends Structure
     public function toString(): string
     {
         return "EmbedManager(title=" . $this->getTitle() . ",description=" . $this->getDescription() . ",color=" . $this->getColor() .
-        ",author=" . $this->getAuthor()?->toString() . ",footer=" . $this->getFooter()?->toString() . ",thumbnail=" . $this->getThumbnail()?->toString() .
-        ",image=" . $this->getImage()?->toString() . ",timestamp=" . $this->getTimestamp()?->toString() . ")";
+            ",author=" . $this->getAuthor()?->toString() . ",footer=" . $this->getFooter()?->toString() . ",thumbnail=" . $this->getThumbnail()?->toString() .
+            ",image=" . $this->getImage()?->toString() . ",timestamp=" . $this->getTimestamp()?->toString() . ")";
     }
 }

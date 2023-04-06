@@ -1,5 +1,6 @@
 package com.ialdrich23xx.libasynwebhook.api.discord.body.embed;
 
+import com.ialdrich23xx.libasynwebhook.api.Loader;
 import com.ialdrich23xx.libasynwebhook.api.discord.body.embed.base.BodyException;
 import com.ialdrich23xx.libasynwebhook.api.discord.body.embed.base.Structure;
 import com.ialdrich23xx.libasynwebhook.api.discord.body.embed.components.*;
@@ -194,14 +195,12 @@ public class EmbedManager extends Structure {
         if (this.getImage() != null) result.put("image", this.getImage().toArray());
         if (this.getTimestamp() != null) result.put("timestamp", this.getTimestamp().getFormat().format(this.getTimestamp().getDate()));
 
-        List<Map<String, Object>> fieldList = new ArrayList<>();
+        List<Object> fieldList = new ArrayList<>();
 
-        this.getFields().forEach(field -> {
-            fieldList.add(field.toArray());
-        });
+        this.getFields().forEach(field -> fieldList.add(Loader.getInstance().formatToJson(field.toArray().entrySet())));
 
         if (!fieldList.isEmpty()) {
-            result.put("fields", fieldList);
+            result.put("fields", fieldList.toArray());
         }
 
         return result;

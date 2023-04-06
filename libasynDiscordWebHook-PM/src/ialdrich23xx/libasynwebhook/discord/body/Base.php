@@ -100,8 +100,10 @@ class Base extends Structure implements JsonSerializable
     public function build(): bool
     {
         if (!is_null($this->getAvatar()) && !Loader::getInstance()->isValidUrl($this->getAvatar())) return false;
+        if (is_null($this->getContent()) && empty($this->getEmbeds())) return false;
+        if (!is_null($this->getContent()) && strlen($this->getContent()) === 0) return false;
 
-        return (!is_null($this->getContent()) && strlen($this->getContent()) !== 0) || !empty($this->getEmbeds());
+        return true;
     }
 
     public function jsonSerialize(): array
@@ -129,6 +131,6 @@ class Base extends Structure implements JsonSerializable
     public function toString(): string
     {
         return "Base(content=" . $this->getContent() . ",username=" . $this->getUsername() . ",avatar=" . $this->getAvatar() .
-        ";embeds=Array(" . count($this->getEmbeds()) . ")";
+            ";embeds=Array(" . count($this->getEmbeds()) . ")";
     }
 }
