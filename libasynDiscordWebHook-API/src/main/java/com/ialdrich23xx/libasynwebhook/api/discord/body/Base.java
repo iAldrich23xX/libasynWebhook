@@ -4,7 +4,6 @@ import com.ialdrich23xx.libasynwebhook.api.Loader;
 import com.ialdrich23xx.libasynwebhook.api.discord.body.embed.EmbedManager;
 import com.ialdrich23xx.libasynwebhook.api.discord.body.embed.base.Structure;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Base extends Structure {
@@ -13,6 +12,7 @@ public class Base extends Structure {
     private String username = null;
     private String avatar = null;
     private Boolean textToSpeech = false;
+    private String threadName = null;
 
     private List<EmbedManager> embeds = new ArrayList<>();
 
@@ -78,6 +78,22 @@ public class Base extends Structure {
         return this.embeds;
     }
 
+    public Base setForumTitle(String forumTitle) {
+        this.threadName = forumTitle;
+
+        return this;
+    }
+
+    public String getForumTitle()
+    {
+        return this.threadName;
+    }
+
+    public Boolean isForum()
+    {
+        return this.threadName != null;
+    }
+
     @Override
     public Boolean build() {
         if (this.getAvatar() != null && !Loader.getInstance().isValidUrl(this.getAvatar())) return false;
@@ -104,6 +120,8 @@ public class Base extends Structure {
         if (!embedList.isEmpty()) {
             result.put("embeds", embedList.toArray());
         }
+
+        if (this.isForum()) result.put("thread_name", this.getForumTitle());
 
         return result;
     }

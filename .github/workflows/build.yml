@@ -88,7 +88,7 @@ jobs:
           name: Release v${{ env.VERSION }}
           tag: ${{ env.VERSION }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          body: "The artifacts are kept up to date with the branch release."
+          body: "v1.1.0 define is channel of discord is forum & set title of 'post' forum"
           commit: ${{ github.sha }}
           allowUpdates: true
           removeArtifacts: false

@@ -18,6 +18,7 @@ class Base extends Structure implements JsonSerializable
     private ?string $username = null;
     private ?string $avatar = null;
     private bool $textToSpeech = false;
+    private ?string $threadName = null;
 
     /** @var EmbedManager[] */
     private array $embeds = [];
@@ -97,6 +98,23 @@ class Base extends Structure implements JsonSerializable
         return $this->embeds;
     }
 
+    public function setForumTitle(string $title): self
+    {
+        $this->threadName = $title;
+
+        return $this;
+    }
+
+    public function getForumTitle(): ?string
+    {
+        return $this->threadName;
+    }
+
+    public function isForum(): bool
+    {
+        return !is_null($this->threadName);
+    }
+
     public function build(): bool
     {
         if (!is_null($this->getAvatar()) && !Loader::getInstance()->isValidUrl($this->getAvatar())) return false;
@@ -124,6 +142,8 @@ class Base extends Structure implements JsonSerializable
                 $result["embeds"][] = $embed->toArray();
             }
         }
+
+        if ($this->isForum()) $result["thread_name"] = $this->getForumTitle();
 
         return $result;
     }
