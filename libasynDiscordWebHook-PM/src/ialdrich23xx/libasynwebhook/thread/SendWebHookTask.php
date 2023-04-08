@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace ialdrich23xx\libasynwebhook\thread;
 
-use InvalidArgumentException;
 use JsonException;
 use pocketmine\scheduler\AsyncTask;
+use pocketmine\thread\NonThreadSafeValue;
 use pocketmine\utils\Internet;
 use ialdrich23xx\libasynwebhook\discord\WebHook;
-use function igbinary_serialize;
-use function igbinary_unserialize;
 use function is_null;
 use function json_encode;
 use const JSON_THROW_ON_ERROR;
@@ -20,7 +18,8 @@ class SendWebHookTask extends AsyncTask
     private string $page;
     private int $timeout;
     private string $args;
-    private string $headers;
+    /** @phpstan-var NonThreadSafeValue<array> */
+    protected NonThreadSafeValue $headers;
 
     /**
      * @throws JsonException
@@ -37,21 +36,16 @@ class SendWebHookTask extends AsyncTask
         $this->page = $webHook->getUrl();
         $this->timeout = 10;
 
-        $serialized_headers = igbinary_serialize(["Content-Type: application/json"]);
-
-        if ($serialized_headers === null) {
-            throw new InvalidArgumentException("Headers cannot be serialized");
-        }
-
-        $this->headers = $serialized_headers;
+        /** @phpstan-ignore-next-line */
+        $this->headers = new NonThreadSafeValue(["Content-Type: application/json"]);
     }
 
+    /**
+     * @return string[]
+     */
     public function getHeaders(): array
     {
-        /** @var array $headers */
-        $headers = igbinary_unserialize($this->headers);
-
-        return $headers;
+        return $this->headers->deserialize();
     }
 
     public function onRun(): void

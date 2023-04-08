@@ -2,9 +2,9 @@ name: Build
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "pmmp5" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "pmmp5" ]
 
 jobs:
   build:
@@ -21,12 +21,12 @@ jobs:
         with:
           repository: "pmmp/PHP-Binaries"
           tag: "php-8.0-latest"
-          fileName: "PHP-Linux-x86_64-PM4.tar.gz"
+          fileName: "PHP-Linux-x86_64-PM5.tar.gz"
 
       - name: Prepare PHP
         run: |
-          tar -xvzf PHP-Linux-x86_64-PM4.tar.gz -C ./.github/
-          rm -r PHP-Linux-x86_64-PM4.tar.gz
+          tar -xvzf PHP-Linux-x86_64-PM5.tar.gz -C ./.github/
+          rm -r PHP-Linux-x86_64-PM5.tar.gz
 
       - uses: robinraju/release-downloader@v1.7
         with:
@@ -51,7 +51,7 @@ jobs:
         run: |
           echo "Building"
           cd libasynDiscordWebHook-PM
-          ./../.github/bin/php7/bin/php -dphar.readonly=0 ./../.phar-builder/PharBuilder/virion/VirionBuildScript.php --make . --out libasynWebHook-PM-virion-${{ steps.yaml-data.outputs.data }}.phar
+          ./../.github/bin/php7/bin/php -dphar.readonly=0 ./../.phar-builder/PharBuilder/virion/VirionBuildScript.php --make . --out libasynWebHook-PM5-virion-${{ steps.yaml-data.outputs.data }}.phar
           echo "Build completed!"
 
       - name: Compile example-plugins
@@ -62,7 +62,7 @@ jobs:
           echo "Composer installing..."
           ./../../.github/bin/php7/bin/php composer.phar install --prefer-dist --no-interaction --no-dev
           rm -r composer.phar
-          ./../../.github/bin/php7/bin/php -dphar.readonly=0 ./../../.phar-builder/PharBuilder/plugin/PluginBuildScript.php --make . --out pmmp4-example-${{ steps.yaml-data.outputs.data }}.phar
+          ./../../.github/bin/php7/bin/php -dphar.readonly=0 ./../../.phar-builder/PharBuilder/plugin/PluginBuildScript.php --make . --out pmmp5-example-${{ steps.yaml-data.outputs.data }}.phar
           echo "Build completed!"
 
       - name: Set up JDK 11
@@ -83,7 +83,7 @@ jobs:
       - name: Upload Artifact
         uses: ncipollo/release-action@v1.12.0
         with:
-          artifacts: ${{ github.workspace }}/libasynDiscordWebHook-API/target/libasynDiscordWebHook-API-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-PM/example-plugin/*.phar, ${{ github.workspace }}/libasynDiscordWebHook-PM/*.phar
+          artifacts: ${{ github.workspace }}/libasynDiscordWebHook-PM/example-plugin/*.phar, ${{ github.workspace }}/libasynDiscordWebHook-PM/*.phar
           draft: false
           name: Release v${{ env.VERSION }}
           tag: ${{ env.VERSION }}
