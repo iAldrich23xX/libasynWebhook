@@ -12,7 +12,7 @@
     <artifactId>libasynDiscordWebHook-API</artifactId>
 
     <properties>
-        <lombok-version>1.18.26</lombok-version>
+        <lombok-version>1.18.28</lombok-version>
     </properties>
 
     <dependencies>
