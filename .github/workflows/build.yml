@@ -81,7 +81,7 @@ jobs:
           echo "VERSION=${VERSION}" >> $GITHUB_ENV     
 
       - name: Upload Artifact
-        uses: ncipollo/release-action@v1.12.0
+        uses: ncipollo/release-action@v1.13.0
         with:
           artifacts: ${{ github.workspace }}/libasynDiscordWebHook-API/target/libasynDiscordWebHook-API-${{ env.VERSION }}.jar, ${{ github.workspace }}/libasynDiscordWebHook-PM/example-plugin/*.phar, ${{ github.workspace }}/libasynDiscordWebHook-PM/*.phar
           draft: false
